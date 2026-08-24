@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 class Program
 {
@@ -42,17 +42,17 @@ class Program
                 // case 11: GestaoMetodos.ConsultarBoletim(); break;
                 // case 12: GestaoMetodos.EnviarNotificacao(); break;
                 case 1: RascunhoTesteLocal.TestarEstrutura(); break;
-                case 2: RascunhoTesteLocal.TestarEstrutura(); break;
-                case 3: RascunhoTesteLocal.TestarEstrutura(); break;
+                case 2: GerenciadorPessoas.CadastrarProfessor(); break;
+                case 3: GerenciadorPessoas.CadastrarAluno(); break;
                 case 4: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 5: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 6: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 7: RascunhoTesteLocal.TestarEstrutura(); break;
-                case 8: RascunhoTesteLocal.TestarEstrutura(); break;
+                case 8: GerenciadorPessoas.ConsultarPessoas(); break;
                 case 9: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 10: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 11: RascunhoTesteLocal.TestarEstrutura(); break;
-                case 12: RascunhoTesteLocal.TestarEstrutura(); break;
+                case 12: GerenciadorPessoas.EnviarNotificacao(); break;
                 case 0: Console.WriteLine("Sistema encerrado."); break;
                 default: Console.WriteLine("Opção inválida!"); break;
             }
