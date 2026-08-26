@@ -8,13 +8,13 @@
 
 * **Aline Shimoi Rodrigues** - [GitHub](https://github.com/AlineShimoi)
 
-* **Daianne Coelho Pinheiro** - [GitHub](https://github.com/daiannec-p)
+* **Daianne Coelho Pinheiro** (Líder da Squad) - [GitHub](https://github.com/daiannec-p)
 
 * **Luana Ferreira Souza** - [GitHub](https://github.com/luanaferreirasouza)
 
 * **Marcia Daniele da Silva Moreira** - [GitHub](https://github.com/Marcia-Moreira)
 
-* **Mariana Nascimento Lemos** (Líder da Squad) - [GitHub](https://github.com/mariananlemos)
+* **Mariana Lemos** - [GitHub](https://github.com/mariananlemos)
 
 ## 🏛️ Instituição e Contexto
 
