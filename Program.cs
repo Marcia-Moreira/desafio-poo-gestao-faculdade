@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        //! Para TESTAR: Popular/Carregamento de Dados para Teste
+        BancoDados.CarregarDadosDeTeste();
+
         int opcao;
         do
         {
