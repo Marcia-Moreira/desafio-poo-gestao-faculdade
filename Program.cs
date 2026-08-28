@@ -49,17 +49,16 @@ class Program
                 case 3: GerenciadorPessoas.CadastrarAluno(); break;
                 case 4: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 5: RascunhoTesteLocal.TestarEstrutura(); break;
-                case 6: RascunhoTesteLocal.TestarEstrutura(); break;
+                case 6: GerenciadorMatricula.MatricularAluno(); break;
                 case 7: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 8: GerenciadorPessoas.ConsultarPessoas(); break;
                 case 9: RascunhoTesteLocal.TestarEstrutura(); break;
-                case 10: RascunhoTesteLocal.TestarEstrutura(); break;
-                case 11: RascunhoTesteLocal.TestarEstrutura(); break;
+                case 10: GerenciadorMatricula.ConsultarMatriculas(); break;
+                case 11: GerenciadorMatricula.ConsultarBoletim(); break;
                 case 12: GerenciadorPessoas.EnviarNotificacao(); break;
                 case 0: Console.WriteLine("Sistema encerrado."); break;
                 default: Console.WriteLine("Opção inválida!"); break;
             }
         } while (opcao != 0);
     }
-}
-// dotnet run
+}// dotnet run
