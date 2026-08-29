@@ -73,7 +73,7 @@ class Program
                 // O professor responsável deve estar previamente cadastrado. 
                 // Não deve ser possível cadastrar duas disciplinas com o mesmo código. 
 
-                Console.WriteLine("\n--- CADASTRO DE DISCIPLINA ---");
+                Console.WriteLine("\n====== CADASTRO DE DISCIPLINA ====== ");
 
                 // 1. Validar se existem professores cadastrados
                 if (listaProfessores.Count == 0)
@@ -134,7 +134,7 @@ class Program
 
                 case "9": // Consulta de cursos
 
-            Console.WriteLine("\n--- CONSULTAR CURSOS CADASTRADOS ---");
+            Console.WriteLine("\n====== CONSULTAR CURSOS CADASTRADOS ====== ");
 
             if (listaCursos.Count == 0)
             {
