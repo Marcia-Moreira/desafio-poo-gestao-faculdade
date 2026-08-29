@@ -1,17 +1,32 @@
-using System;
+// abstraçao : Dados essenciais para o sistema (Nome, Código e Tipo do curso)
+// System.Collections.Generic para permitir o uso de listas e incluí a coleção de disciplinas
 
-public class Curso
+using System.Collections.Generic; // Necessário para usar Listas
+
+//namespace FaculdadeCarmemPortinho
 {
-    public string Codigo { get; set; }
-    public string Nome { get; set; }
-    public string Tipo { get; set; } // "Graduação" ou "Pós-graduação"
-    public List<Disciplina> Disciplinas { get; set; } = new List<Disciplina>();
-    public List<Aluno> AlunosMatriculados { get; set; } = new List<Aluno>();
-
-    public Curso(string codigo, string nome, string tipo)
+    public class Curso
     {
-        Codigo = codigo;
-        Nome = nome;
-        Tipo = tipo;
+        public string Nome{ get; set; } //Permitem ler e gravar informações nos campos.
+        public string Codigo { get; set; }
+        public string Tipo { get; set; } // Graduação ou Pós-graduação
+        public List<Disciplina> Disciplinas { get; set; } // Lista para armazenar as disciplinas vinculadas a este curso
+
+        // Construtor
+        public Curso(string nome, string codigo, string tipo)
+        {
+            Nome = nome;
+            Codigo = codigo;
+            Tipo = tipo;
+            Disciplinas = new List<Disciplina>(); // Inicializamos a lista vazia para evitar erros de "referência nula"
+        }
     }
 }
+
+//Cadastro de curso
+// Para cadastrar um curso, informe:
+// Código;
+// Nome;
+// Tipo do curso.
+// Exemplo:
+// Código: ADS Nome: Análise e Desenvolvimento de Sistemas Tipo: Graduação
