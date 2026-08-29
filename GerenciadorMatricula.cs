@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 public class GerenciadorMatricula
 {
     public static void MatricularAluno()
@@ -136,17 +138,19 @@ public class GerenciadorMatricula
         {
             Console.WriteLine();
             Console.WriteLine(d.Nome);
+            Dictionary<Disciplina, double> notas = new Dictionary<Disciplina, double>();
+            Dictionary<Disciplina, string> situacao = new Dictionary<Disciplina, string>();
+            foreach(var n in notas)
+            {
+                Console.WriteLine($"Nota: {n.Value}");
+            }
+            
+            foreach(var s in situacao)
+            {
+                Console.WriteLine($"Situação: {s.Value}");
+            }
         }
-        Dictionary<Disciplina, double> notas = new Dictionary<Disciplina, double>();
-        foreach(var n in notas)
-        {
-            Console.WriteLine($"Nota: {n.Value}");
-        }
-        Dictionary<Disciplina, double> situacao = new Dictionary<Disciplina, double>();
-        foreach(var s in situacao)
-        {
-            Console.WriteLine($"Situação: {s.Value}");
-        }
+        
 
     }
 }
