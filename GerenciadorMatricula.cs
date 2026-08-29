@@ -14,21 +14,35 @@ public class GerenciadorMatricula
             Console.WriteLine($"Aluno(a) {nome} já matriculado");
             return;
         }
-        else if(nome is "null" && nomeCurso is not "null") 
-        {
-            Console.WriteLine($"Matricula do aluno(a) {nome} no curso {nomeCurso}, realizada.");
-        }
 
-        /*try
+        try
         {
-            Matricula matricula = new Matricula(nome, codigoCurso);
-            matriculas.Add(matricula);
+            Aluno matriculaAluno = new Aluno("null","null","null","null");
+            foreach(var a in BancoDados.Alunos)
+            {
+                if(a.Nome == nome)
+                {
+                    matriculaAluno = new Aluno(a.Nome, a.CPF, a.Email, a.Matricula);
+                }
+            }            
+            
+            Curso matriculaCurso = new Curso("null", "null", "null");
+            foreach(var c in BancoDados.Cursos)
+            {
+                if(c.Nome == nomeCurso)
+                {
+                    matriculaCurso = new Curso(c.Codigo, c.Nome, c.Tipo);
+                }
+            }
+            Matricula novaMatricula = new Matricula(matriculaAluno, matriculaCurso);
+            BancoDados.Matriculas.Add(novaMatricula);
+            Console.WriteLine($"Matricula do aluno(a) {nome} no curso {nomeCurso}, realizada.");
 
         }
         catch(Exception ex)
         {
             Console.WriteLine(ex.Message);
-        }*/
+        }
     }
 
     public static void ConsultarMatriculas()
@@ -40,11 +54,7 @@ public class GerenciadorMatricula
     public static void ConsultarBoletim()
     {
         Console.WriteLine("----- Consulta de Boletim -----");
-        string nome = ValidarAluno();
-        if(nome is "null") return;
-
-        string nomeCurso = ValidarCurso();
-        if(nomeCurso is "null") return;
+        InformacoesBoletim();
     }
 
     public static string ValidarAluno()
@@ -96,78 +106,47 @@ public class GerenciadorMatricula
         }
     }
 
-
-
-
-
-
-    /*public void MatricularAluno(List<Matricula> matriculas, List<Aluno> alunos, List<Curso> cursos)
+    public static void InformacoesBoletim()
     {
-        //menu item 6: Matricular aluno em curso
-        BancoDados.CarregarDadosDeTeste();
-        Console.WriteLine("----- Matrícula de Aluno no Curso -----");
+        var nomeAluno = ValidarAluno();
+        var nomeCurso = ValidarCurso();
+
+        foreach(var m in BancoDados.Matriculas)
+        {
+            if(m.AlunoAssociado.Nome == nomeAluno)
+            {
+                Console.WriteLine("----- Boletim -----");
+                Console.WriteLine($"Nome: {m.AlunoAssociado.Nome}");
+                Console.WriteLine($"Matrícula: {m.AlunoAssociado.Matricula}");
+                Console.WriteLine();
+            }
+        }
+        foreach(var c in BancoDados.Matriculas)
+        {
+            if(c.CursoAssociado.Nome == nomeCurso)
+            {
+
+                Console.WriteLine($"Curso: {c.CursoAssociado.Codigo}");
+                Console.WriteLine($"Tipo: {c.CursoAssociado.Tipo}");
+            }
+        }
         
-        var nomeAluno = BuscarAluno(alunos);
-        var nomeCurso = BuscarCurso(cursos);
-        if(nomeAluno is null || nomeCurso is null) return;
-
-        var matricula = matriculas.FirstOrDefault(x => x.AlunoAssociado == nomeAluno && x.CursoAssociado == nomeCurso);
-        //Matricula do aluno no curso encontrada se matricula not null
-        if(matricula is not null)
+        List<Disciplina> disciplinas = new List<Disciplina>();
+        foreach(var d in disciplinas)
         {
-            Console.WriteLine($"Aluno {nomeAluno} já matriculado");
-            return;
+            Console.WriteLine();
+            Console.WriteLine(d.Nome);
+        }
+        Dictionary<Disciplina, double> notas = new Dictionary<Disciplina, double>();
+        foreach(var n in notas)
+        {
+            Console.WriteLine($"Nota: {n.Value}");
+        }
+        Dictionary<Disciplina, double> situacao = new Dictionary<Disciplina, double>();
+        foreach(var s in situacao)
+        {
+            Console.WriteLine($"Situação: {s.Value}");
         }
 
-        Console.WriteLine($"Matricula do aluno {nomeAluno} - {matricula}, realizada.");
-
-        try
-        {
-            Matricula matricula = new Matricula(aluno, curso);
-            matriculas.Add(matricula);
-
-        }
-        catch(Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }   
-        
-
-    public Aluno BuscarAluno(List<Aluno> alunos)
-    {
-        BancoDados.CarregarDadosDeTeste();
-            
-        Console.WriteLine("Nome do aluno: ");
-        var nomeAluno = Console.ReadLine();
-        
-        var aluno = alunos.FirstOrDefault(x => x.Nome == nomeAluno);
-
-        if(aluno is null)
-        {
-            Console.WriteLine($"Aluno {aluno} não existe no sistema.");
-        }
-
-        return aluno;
     }
-
-    public Curso BuscarCurso(List<Curso> cursos)
-    { 
-        Console.WriteLine("Curso: ");
-        var nomeCurso = Console.ReadLine();
-            
-        var curso = cursos.FirstOrDefault(x => x.Nome == nomeCurso);
-
-        if(curso is null)
-        {
-            Console.WriteLine($"Curso {curso} não existe no sistema.");                
-        }
-        
-        return curso;
-    }*/
-    //10 - Consultar matrícula
-
-
-    //11 - Consultar boletim
-
 }
