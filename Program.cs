@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         //! Para TESTAR: Popular/Carregamento de Dados para Teste
-        BancoDados.CarregarDadosDeTeste();
+        //BancoDados.CarregarDadosDeTeste();
 
         int opcao;
         do
@@ -50,7 +50,7 @@ class Program
                 case 4: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 5: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 6: GerenciadorMatricula.MatricularAluno(); break;
-                case 7: RascunhoTesteLocal.TestarEstrutura(); break;
+                case 7: GerenciadorMatricula.ExecutarLancarNota(); break;
                 case 8: GerenciadorPessoas.ConsultarPessoas(); break;
                 case 9: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 10: GerenciadorMatricula.ConsultarMatriculas(); break;
@@ -61,4 +61,4 @@ class Program
             }
         } while (opcao != 0);
     }
-}// dotnet run
+}
