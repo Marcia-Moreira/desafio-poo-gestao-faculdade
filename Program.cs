@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Alimenta o banco de dados em memória inicial do sistema para testes rápidos
+        // Para TESTAR: Popular/Carregamento de Dados para Teste
         // BancoDados.CarregarDadosDeTeste();
 
         int opcao;
@@ -56,4 +56,4 @@ class Program
             }
         } while (opcao != 0);
     }
-}
+}// dotnet run

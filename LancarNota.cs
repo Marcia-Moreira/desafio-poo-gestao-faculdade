@@ -13,7 +13,10 @@ namespace desafio_poo_gestao_faculdade
                 return false;
             }
 
-            var matricula = aluno.MatriculasAtivas.FirstOrDefault(m => m.CursoAssociado.Codigo == codigoCurso);
+            var matricula = BancoDados.Matriculas.FirstOrDefault(m => 
+                m.AlunoAssociado.CPF == aluno.CPF && 
+                (m.CursoAssociado.Codigo.ToLower() == codigoCurso.ToLower() || 
+                m.CursoAssociado.Nome.ToLower() == codigoCurso.ToLower()));
 
             if (matricula == null)
             {
@@ -54,7 +57,7 @@ namespace desafio_poo_gestao_faculdade
             matricula.BoletimEspecifico.Situacao[disciplina] = "Reprovado";
         }
 
-        Console.WriteLine($"Sucesso! Nota {nota:F1} lançada para {aluno.Nome} na disciplina {disciplina.Nome}.");
+        Console.WriteLine($"Nota {nota:F1} lançada para {aluno.Nome} na disciplina {disciplina.Nome}.");
         return true;
         }
 
