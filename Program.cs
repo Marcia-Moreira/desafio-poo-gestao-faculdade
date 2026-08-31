@@ -4,8 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+<<<<<<< HEAD
         // Para TESTAR: Popular/Carregamento de Dados para Teste
         // BancoDados.CarregarDadosDeTeste();
+=======
+        //! Para TESTAR: Popular/Carregamento de Dados para Teste
+        //BancoDados.CarregarDadosDeTeste();
+>>>>>>> f8b5e7a82ed894513931fe717f82fed9495a539d
 
         int opcao;
         do
@@ -40,6 +45,13 @@ class Program
                 // Núcleo Humano (Mariana)
                 case 2: GerenciadorPessoas.CadastrarProfessor(); break;
                 case 3: GerenciadorPessoas.CadastrarAluno(); break;
+<<<<<<< HEAD
+=======
+                case 4: RascunhoTesteLocal.TestarEstrutura(); break;
+                case 5: RascunhoTesteLocal.TestarEstrutura(); break;
+                case 6: GerenciadorMatricula.MatricularAluno(); break;
+                case 7: GerenciadorMatricula.ExecutarLancarNota(); break;
+>>>>>>> f8b5e7a82ed894513931fe717f82fed9495a539d
                 case 8: GerenciadorPessoas.ConsultarPessoas(); break;
 
                 // Núcleo de Matrícula (Aline)
@@ -56,4 +68,8 @@ class Program
             }
         } while (opcao != 0);
     }
+<<<<<<< HEAD
 }// dotnet run
+=======
+}
+>>>>>>> f8b5e7a82ed894513931fe717f82fed9495a539d

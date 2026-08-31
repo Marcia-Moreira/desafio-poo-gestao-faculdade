@@ -13,8 +13,7 @@ namespace desafio_poo_gestao_faculdade
                 return false;
             }
 
-            var matricula = aluno.MatriculasAtivas
-                ?.FirstOrDefault(m => m.CursoAssociado != null && m.CursoAssociado.Codigo == codigoCurso);
+            var matricula = aluno.MatriculasAtivas.FirstOrDefault(m => m.CursoAssociado.Codigo == codigoCurso);
 
             if (matricula == null)
             {
@@ -22,8 +21,7 @@ namespace desafio_poo_gestao_faculdade
                 return false;
             }
 
-            var disciplina = matricula.CursoAssociado.Disciplinas
-                ?.FirstOrDefault(d => d.Codigo == codigoDisciplina);
+           var disciplina = matricula.CursoAssociado.Disciplinas.FirstOrDefault(d => d.Codigo == codigoDisciplina);
 
             if (disciplina == null)
             {
@@ -31,16 +29,33 @@ namespace desafio_poo_gestao_faculdade
                 return false;
             }
 
-            // Acessa diretamente o dicionário de Notas criado no Boletim pela Aline
             matricula.BoletimEspecifico.Notas[disciplina] = nota;
 
-            // Define a situação baseada no tipo de curso
-            string tipoCurso = matricula.CursoAssociado.Tipo ?? "Graduação";
-            double notaCorte = tipoCurso.Equals("Pós-graduação", StringComparison.OrdinalIgnoreCase) ? 8.0 : 7.0;
-            matricula.BoletimEspecifico.Situacao[disciplina] = nota >= notaCorte ? "Aprovado" : "Reprovado";
-            
-            Console.WriteLine($"Sucesso! Nota {nota:F1} lançada para {aluno.Nome} na disciplina {disciplina.Nome}.");
-            return true;
+            // 1. Define o tipo do curso
+        string tipoCurso = matricula.CursoAssociado.Tipo;
+        if (string.IsNullOrEmpty(tipoCurso))
+        {
+            tipoCurso = "Graduação";
+        }
+
+        
+        double notaCorte = 7.0;
+
+        if (tipoCurso.ToLower() == "pós-graduação")
+        {
+            notaCorte = 8.0;
+        }
+        if (nota >= notaCorte)
+        {
+            matricula.BoletimEspecifico.Situacao[disciplina] = "Aprovado";
+        }
+        else
+        {
+            matricula.BoletimEspecifico.Situacao[disciplina] = "Reprovado";
+        }
+
+        Console.WriteLine($"Sucesso! Nota {nota:F1} lançada para {aluno.Nome} na disciplina {disciplina.Nome}.");
+        return true;
         }
 
         public void EnviarNotificacao(Pessoa pessoa, string mensagem)
