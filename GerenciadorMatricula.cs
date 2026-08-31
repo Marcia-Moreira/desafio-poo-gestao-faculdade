@@ -1,3 +1,4 @@
+using System.Globalization;
 using desafio_poo_gestao_faculdade;
 
 public class GerenciadorMatricula
@@ -141,19 +142,32 @@ public class GerenciadorMatricula
 
         // 2. Pedir Códigos do curso e da disciplina
         Console.Write("Código do Curso: ");
-        string codigoCurso = Console.ReadLine();
+        string codigoCurso = Console.ReadLine()?.Trim().ToUpper() ?? "";
 
         Console.Write("Código da Disciplina: ");
-        string codigoDisciplina = Console.ReadLine();
+        string codigoDisciplina = Console.ReadLine()?.Trim().ToUpper() ?? "";
 
         Console.Write("Nota (0.0 a 10.0): ");
-        if (!double.TryParse(Console.ReadLine(), out double nota))
+        if (!double.TryParse(Console.ReadLine(), NumberStyles.Float, CultureInfo.InvariantCulture, out double nota))
         {
             Console.WriteLine("Erro: Valor de nota inválido.");
             return;
         }
+
+        // Validar se os códigos não estão vazios
+        if (string.IsNullOrEmpty(codigoCurso))
+        {
+            Console.WriteLine("Erro: Código do curso não pode ser vazio.");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(codigoDisciplina))
+        {
+            Console.WriteLine("Erro: Código da disciplina não pode ser vazio.");
+            return;
+        }
+
         ServicoNota servico = new ServicoNota();
         servico.LancarNota(aluno, codigoCurso, codigoDisciplina, nota);
     }
-   
 }
