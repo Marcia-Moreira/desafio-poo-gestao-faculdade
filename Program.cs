@@ -4,8 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        //! Para TESTAR: Popular/Carregamento de Dados para Teste
-        BancoDados.CarregarDadosDeTeste();
+        // Para TESTAR: Popular/Carregamento de Dados para Teste
+        // BancoDados.CarregarDadosDeTeste();
 
         int opcao;
         do
@@ -31,31 +31,26 @@ class Program
 
             switch (opcao)
             {
-                // Chamando a sua classe de rascunho local para testar minimamente
-                // case 1: GestaoMetodos.CadastrarCurso(); break;
-                // case 2: GestaoMetodos.CadastrarProfessor(); break;
-                // case 3: GestaoMetodos.CadastrarAluno(); break;
-                // case 4: GestaoMetodos.CadastrarDisciplina(); break;
-                // case 5: GestaoMetodos.VincularDisciplina(); break;
-                // case 6: GestaoMetodos.MatricularAluno(); break;
-                // case 7: GestaoMetodos.LancarNota(); break;
-                // case 8: GestaoMetodos.ConsultarPessoas(); break;
-                // case 9: GestaoMetodos.ConsultarCursos(); break;
-                // case 10: GestaoMetodos.ConsultarMatriculas(); break;
-                // case 11: GestaoMetodos.ConsultarBoletim(); break;
-                // case 12: GestaoMetodos.EnviarNotificacao(); break;
-                case 1: RascunhoTesteLocal.TestarEstrutura(); break;
+                // Núcleo Acadêmico (Daianne - Agora separado e adaptado! )
+                case 1: GerenciadorCursos.CadastrarCurso(); break;
+                case 4: GerenciadorCursos.CadastrarDisciplina(); break;
+                case 5: GerenciadorCursos.VincularDisciplina(); break;
+                case 9: GerenciadorCursos.ConsultarCursos(); break;
+
+                // Núcleo Humano (Mariana)
                 case 2: GerenciadorPessoas.CadastrarProfessor(); break;
                 case 3: GerenciadorPessoas.CadastrarAluno(); break;
-                case 4: RascunhoTesteLocal.TestarEstrutura(); break;
-                case 5: RascunhoTesteLocal.TestarEstrutura(); break;
-                case 6: GerenciadorMatricula.MatricularAluno(); break;
-                case 7: RascunhoTesteLocal.TestarEstrutura(); break;
                 case 8: GerenciadorPessoas.ConsultarPessoas(); break;
-                case 9: RascunhoTesteLocal.TestarEstrutura(); break;
+
+                // Núcleo de Matrícula (Aline)
+                case 6: GerenciadorMatricula.MatricularAluno(); break;
                 case 10: GerenciadorMatricula.ConsultarMatriculas(); break;
                 case 11: GerenciadorMatricula.ConsultarBoletim(); break;
-                case 12: GerenciadorPessoas.EnviarNotificacao(); break;
+
+                // Núcleo de Notas e Notificações (Luana - Agora separado e adaptado!)
+                case 7: GerenciadorNotas.IniciarLancamentoNota(); break;
+                case 12: GerenciadorNotas.IniciarNotificacao(); break;
+
                 case 0: Console.WriteLine("Sistema encerrado."); break;
                 default: Console.WriteLine("Opção inválida!"); break;
             }
