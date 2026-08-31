@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+using desafio_poo_gestao_faculdade;
 
 public class GerenciadorMatricula
 {
@@ -107,7 +107,7 @@ public class GerenciadorMatricula
 
         foreach(var a in BancoDados.Alunos)
         {
-            if(a.Nome == nomeAluno)
+            if(a.Nome.ToLower() == nomeAluno)
             {
                 return a;
             }
@@ -130,6 +130,30 @@ public class GerenciadorMatricula
         }
         Console.WriteLine($"Código de curso {nomeCurso} não cadastrado.");
         return null;
+    }
+    public static void ExecutarLancarNota()
+    {
+        Console.WriteLine("\nLançamento de Nota");
+        
+        // 1. Buscar Aluno
+        var aluno = ValidarAluno();
+        if (aluno is null) return;
+
+        // 2. Pedir Códigos do curso e da disciplina
+        Console.Write("Código do Curso: ");
+        string codigoCurso = Console.ReadLine();
+
+        Console.Write("Código da Disciplina: ");
+        string codigoDisciplina = Console.ReadLine();
+
+        Console.Write("Nota (0.0 a 10.0): ");
+        if (!double.TryParse(Console.ReadLine(), out double nota))
+        {
+            Console.WriteLine("Erro: Valor de nota inválido.");
+            return;
+        }
+        ServicoNota servico = new ServicoNota();
+        servico.LancarNota(aluno, codigoCurso, codigoDisciplina, nota);
     }
    
 }
