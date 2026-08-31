@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         // Alimenta o banco de dados em memória inicial do sistema para testes rápidos
-        BancoDados.CarregarDadosDeTeste();
+        // BancoDados.CarregarDadosDeTeste();
 
         int opcao;
         do
@@ -31,7 +31,7 @@ class Program
 
             switch (opcao)
             {
-                // Núcleo Acadêmico (Daiane e Marcia - Integrado com sucesso!)
+                // Núcleo Acadêmico (Daiane - Integrado com sucesso!)
                 case 1: GerenciadorCursos.CadastrarCurso(); break;
                 case 4: GerenciadorCursos.CadastrarDisciplina(); break;
                 case 5: GerenciadorCursos.VincularDisciplina(); break;
@@ -47,7 +47,7 @@ class Program
                 case 10: GerenciadorMatricula.ConsultarMatriculas(); break;
                 case 11: GerenciadorMatricula.ConsultarBoletim(); break;
 
-                // Núcleo de Notas e Notificações (Luana - Separado e Limpo!)
+                // Núcleo de Notas e Notificações (Luana - Separado)
                 case 7: GerenciadorNotas.IniciarLancamentoNota(); break;
                 case 12: GerenciadorNotas.IniciarNotificacao(); break;
 
